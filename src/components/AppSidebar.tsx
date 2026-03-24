@@ -121,7 +121,7 @@ export function AppSidebar({ collapsed, onToggle, onNewSession, history, onClear
               {filtered.map((item, i) => {
                 const Icon = modeIcons[item.mode];
                 return (
-                  <motion.button
+                  <motion.div
                     key={item.id}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -146,7 +146,7 @@ export function AppSidebar({ collapsed, onToggle, onNewSession, history, onClear
                     >
                       <Trash2 className="w-3 h-3" />
                     </button>
-                  </motion.button>
+                  </motion.div>
                 );
               })}
             </AnimatePresence>

@@ -25,15 +25,21 @@ Replace the placeholder paths below with your actual assets (for example under p
 
 ### Main Workspace
 
-![Main Workspace](public/screenshots/main-workspace.png)
+![Main Workspace](public/screenshots/main-workspace_Review Code.png)
 
 ### Review Mode
 
-![Review Mode](public/screenshots/review-mode.png)
+![Fix Mode](public/screenshots/fixcode.png)
 
-### Generate Mode (GIF)
+### Generate Mode
 
-![Generate Mode GIF](public/screenshots/generate-mode.gif)
+![Generate Mode GIF](public/screenshots/genarate Code.png)
+
+### Setting
+(public/screenshots/setting_AI Setting.png)
+(public/screenshots/setting_appearance.png)
+(public/screenshots/setting_editor.png)
+(public/screenshots/setting_Profile.png)
 
 ## Tech Stack
 
