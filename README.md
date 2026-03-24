@@ -23,22 +23,22 @@ The UI combines a code editor panel, AI result panels, a chat assistant, session
 
 ### Main Workspace
 
-![Main Workspace](/screenshots/main-workspace_Review%20Code.png)
+![Main Workspace](public/screenshots/main-workspace_Review%20Code.png)
 
 ### Review Mode
 
-![Review/Fix Mode](/screenshots/fixcode.png)
+![Review/Fix Mode](public/screenshots/fixcode.png)
 
 ### Generate Mode
 
-![Generate Mode](/screenshots/genarate%20Code.png)
+![Generate Mode](public/screenshots/genarate%20Code.png)
 
 ### Settings
 
-![Settings - AI](/screenshots/setting_AI%20Setting.png)
-![Settings - Appearance](/screenshots/setting_appearance.png)
-![Settings - Editor](/screenshots/setting_editor.png)
-![Settings - Profile](/screenshots/setting_Profile.png)
+![Settings - AI](public/screenshots/setting_AI%20Setting.png)
+![Settings - Appearance]public(/screenshots/setting_appearance.png)
+![Settings - Editor](public/screenshots/setting_editor.png)
+![Settings - Profile](public/screenshots/setting_Profile.png)
 
 ## Tech Stack
 
