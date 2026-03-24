@@ -36,7 +36,7 @@ The UI combines a code editor panel, AI result panels, a chat assistant, session
 ### Settings
 
 ![Settings - AI](public/screenshots/setting_AI%20Setting.png)
-![Settings - Appearance]public(/screenshots/setting_appearance.png)
+![Settings - Appearance](public/screenshots/setting_appearance.png)
 ![Settings - Editor](public/screenshots/setting_editor.png)
 ![Settings - Profile](public/screenshots/setting_Profile.png)
 
