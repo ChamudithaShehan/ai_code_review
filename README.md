@@ -1,49 +1,206 @@
-# 🚀 Code Companion AI
+# Code Companion AI
 
-A modern, stunning, highly-responsive AI-powered code editor and companion built with Next.js, React, Tailwind CSS, and Framer Motion. This application seamlessly integrates with OpenRouter completely bypassing local limitations, granting you immediate access to cutting-edge models for analyzing, fixing, chatting, and generating code.
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)
+![License](https://img.shields.io/badge/License-Not%20Specified-lightgrey)
+![Status](https://img.shields.io/badge/Status-Active-success)
 
-## ✨ Features
+Code Companion AI is a Next.js App Router application for reviewing, fixing, generating, and discussing code with OpenRouter models.
 
-- **Code Editor**: A fully integrated, syntax-highlighted editor experience (using Monaco logic).
-- **Glassmorphism Design**: Experience a gorgeous dark-first theme with frosted glass effects and dynamic glowing accents.
-- **AI Review Panel**: Submit your code and get structured, line-by-line feedback with severity levels (error, warning, suggestion).
-- **AI Fix Panel**: Automatically applies AI-generated best practices to your buggy code, showcasing a clear unified diff for comparison.
-- **AI Generate Panel**: Stream completely new, functional scripts based on your conversational natural language prompts in real-time.
-- **AI Chat Panel**: Ask the assistant anything using your session's rich chat context.
-- **Model Selection**: Switch seamlessly between top-tier free open-source models (like Qwen, Nemotron, StepFun) instantly from the application settings!
-- **Persistent History**: Browsing sessions and chat queries are saved securely in your browser's local storage so you can easily pick up where you left off.
+The UI combines a code editor panel, AI result panels, a chat assistant, session history, command palette, and a settings dialog.
 
-## 🛠️ Tech Stack
+## Features
 
-- **Framework**: Next.js 15+ (App Router)
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **AI Backend**: OpenRouter API Integration (`/api/review` and `/api/chat`)
+- Review mode: sends source code to an AI reviewer and renders structured findings (error, warning, suggestion) with line numbers.
+- Fix mode: asks the model to return improved code and shows original vs fixed output in a side-by-side view.
+- Generate mode: produces code from natural-language prompts.
+- Chat panel: conversational assistant backed by the same chat endpoint.
+- Local history: stores recent sessions in browser localStorage (up to 50 entries).
+- Command palette: keyboard-driven action launcher for modes and app actions.
+- Responsive layout: desktop split-view and mobile panel switching.
 
-## ⚡ Quick Start
+## Screenshots / GIFs
 
-### 1. Clone & Install
-\`\`\`bash
+Replace the placeholder paths below with your actual assets (for example under public/screenshots/).
+
+### Main Workspace
+
+![Main Workspace](public/screenshots/main-workspace.png)
+
+### Review Mode
+
+![Review Mode](public/screenshots/review-mode.png)
+
+### Generate Mode (GIF)
+
+![Generate Mode GIF](public/screenshots/generate-mode.gif)
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 18
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- OpenRouter Chat Completions API
+- Radix UI primitives + shadcn/ui style components
+
+## Requirements
+
+- Node.js 18.18+ (recommended: current active LTS)
+- npm (or another package manager compatible with this lockfile setup)
+- OpenRouter API key
+
+## Setup
+
+1. Install dependencies:
+
+```bash
 npm install
-\`\`\`
+```
 
-### 2. Configure Environment
-Create a new file named \`.env.local\` in the root directory and add your OpenRouter API key:
-\`\`\`env
+2. Create .env.local in the project root:
+
+```env
 OPENROUTER_API_KEY=sk-or-v1-...
-\`\`\`
-> Note: If you add or change this file while the server is running, you must restart the server for Next.js to load the key!
+```
 
-### 3. Run the Development Server
-\`\`\`bash
+3. Start development server:
+
+```bash
 npm run dev
-\`\`\`
-Open [http://localhost:3000](http://localhost:3000) with your browser to use the application.
+```
 
-## 💡 Usage
+4. Open http://localhost:3000
 
-1. Paste your code into the primary editor block.
-2. Select your desired mode from the Sidebar (Review, Fix, Generate).
-3. Ensure your desired model is selected in the Settings Dialog (Gear Icon on the top right).
-4. Hit **"Analyze"** or **"Send"** to invoke the AI!
+Important: restart the dev server after changing .env.local so Next.js reloads environment variables.
+
+## Available Scripts
+
+```bash
+npm run dev     # Start local dev server
+npm run build   # Create production build
+npm run start   # Run production server
+npm run lint    # Run ESLint
+```
+
+## API Endpoints
+
+### POST /api/review
+
+Analyzes code and returns structured review items.
+
+Request body:
+
+```json
+{
+  "code": "string",
+  "language": "string",
+  "model": "string"
+}
+```
+
+Response body:
+
+```json
+{
+  "feedback": [
+    {
+      "id": "1",
+      "type": "error",
+      "line": 12,
+      "title": "Short issue title",
+      "description": "Detailed explanation",
+      "code": "optional suggested snippet"
+    }
+  ]
+}
+```
+
+### POST /api/chat
+
+Proxies chat completions for chat, generate, and fix flows.
+
+Request body:
+
+```json
+{
+  "model": "string",
+  "messages": [
+    {
+      "role": "system",
+      "content": "string"
+    },
+    {
+      "role": "user",
+      "content": "string"
+    }
+  ]
+}
+```
+
+Response body:
+
+```json
+{
+  "text": "assistant response"
+}
+```
+
+## Keyboard Shortcuts
+
+- Ctrl/Cmd + K: open command palette
+- Ctrl/Cmd + 1: switch to Review mode
+- Ctrl/Cmd + 2: switch to Fix mode
+- Ctrl/Cmd + 3: switch to Generate mode
+- Ctrl/Cmd + Enter: run current action (analyze/generate)
+- Ctrl/Cmd + B: toggle sidebar
+- Ctrl/Cmd + J: toggle chat panel
+
+## Project Structure
+
+```text
+src/
+  app/
+    api/
+      chat/route.ts
+      review/route.ts
+    page.tsx
+    layout.tsx
+  components/
+    AppSidebar.tsx
+    ChatPanel.tsx
+    CodeEditorPanel.tsx
+    CommandPalette.tsx
+    FixPanel.tsx
+    GeneratePanel.tsx
+    ReviewPanel.tsx
+    SettingsDialog.tsx
+  hooks/
+    useHistory.ts
+  lib/
+    mock-data.ts
+    utils.ts
+```
+
+## Persistence Behavior
+
+- Persisted: session history in localStorage under key codeai_history.
+- Not persisted by default: chat transcript, selected model, theme, and in-progress editor state.
+
+## Known Limitations
+
+- The editor is currently textarea-based with syntax-highlight display layer (not Monaco).
+- Review response parsing is defensive because some model responses can include non-JSON wrappers.
+- Some settings controls are UI-only and do not yet modify backend behavior.
+- Test scaffolding exists, but test scripts/tooling are not fully wired in package scripts.
+
+## Security Notes
+
+- Do not expose your OpenRouter key in client-side code.
+- Keep secrets in .env.local and never commit that file.
+- Route handlers forward prompts/code to a third-party model provider; avoid sending sensitive source unless your policy allows it.
+
+## License
+
+No license file is currently present in this repository. Add one before distributing or reusing this project publicly.
