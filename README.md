@@ -21,25 +21,24 @@ The UI combines a code editor panel, AI result panels, a chat assistant, session
 
 ## Screenshots / GIFs
 
-Replace the placeholder paths below with your actual assets (for example under public/screenshots/).
-
 ### Main Workspace
 
-![Main Workspace](public/screenshots/main-workspace_Review Code.png)
+![Main Workspace](/screenshots/main-workspace_Review%20Code.png)
 
 ### Review Mode
 
-![Fix Mode](public/screenshots/fixcode.png)
+![Review/Fix Mode](/screenshots/fixcode.png)
 
 ### Generate Mode
 
-![Generate Mode GIF](public/screenshots/genarate Code.png)
+![Generate Mode](/screenshots/genarate%20Code.png)
 
-### Setting
-(public/screenshots/setting_AI Setting.png)
-(public/screenshots/setting_appearance.png)
-(public/screenshots/setting_editor.png)
-(public/screenshots/setting_Profile.png)
+### Settings
+
+![Settings - AI](/screenshots/setting_AI%20Setting.png)
+![Settings - Appearance](/screenshots/setting_appearance.png)
+![Settings - Editor](/screenshots/setting_editor.png)
+![Settings - Profile](/screenshots/setting_Profile.png)
 
 ## Tech Stack
 
